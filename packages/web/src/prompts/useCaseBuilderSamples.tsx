@@ -627,4 +627,44 @@ XXX
     icon: <PiFlaskBold />,
     color: 'gray',
   },
+  {
+    category: 'テキスト処理',
+    title: '抜け漏れチェックリスト作成',
+    description: '与えられたテーマに関する MECE なリストを作成します。',
+    promptTemplate: `以下はユーザーと AI の会話です。
+AI は与えられたテーマについて、MECE なリストを作成するアシスタントです。
+ユーザーから <text></text> の xml タグに囲んで テキストを与えられます。
+AI は、そのテーマに関する MECE なリストを作成します。
+以下の <example></example> の xml タグに囲まれた内容は例です。
+<example>
+<text>
+非機能要求グレード
+</text>
+求める出力は以下の通りです。
+<output>
+* 可用性
+* 性能・拡張性
+* 運用・保守性
+* 移行性
+* セキュリティ
+* システム環境・エコロジー
+</output>
+</example>
+作成したリストのみを出力してください。他の文字は一切出力しないでください。
+
+<text>
+{{text:リスト作成をしたいテーマ}}
+</text>
+`,
+    inputExamples: [
+      {
+        title: '準備の抜け漏れをチェックする',
+        examples: {
+          リスト作成をしたいテーマ: `出張時に必要な持ち物`,
+        },
+      },
+    ],
+    icon: <PiEyedropperBold />,
+    color: 'orange',
+  },
 ];
